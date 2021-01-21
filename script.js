@@ -17,16 +17,26 @@ function displayCars() {
           // On place chaque caractéristique et leur nom dans une ligne
           let line = document.createElement("div");
           line.classList.add("line");
-          line.innerHTML += "<h2>" + j + "</h2>";
+          line.innerHTML += "<h3>" + j + "</h3>";
 
           switch (j) {
+            case "name":
+              line.innerHTML = "<h2>" + data[i][j] + "</h2>";
+              line.classList.add("name")
+              break;
             // Si c'est on traite la description, on ajoute une classe description
             case "description":
-              line.innerHTML += '<p class="description">' + data[i][j] + "<p>";
+              line.innerHTML += '<p>' + data[i][j] + "<p>";
+              line.classList.add("description")
               break;
             // Si c'est une image, on place l'url dans une balise img
             case "img":
-              line.innerHTML = '<img src="' + data[i][j] + '">';
+              line.innerHTML =
+                '<img src="' +
+                data[i][j] +
+                '" alt="Image de ' +
+                data[i].name +
+                '">';
               line.classList.add("image");
               break;
             // Sinon on place le contenu dans une balise p
