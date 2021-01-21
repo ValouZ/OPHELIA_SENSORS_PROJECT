@@ -33,11 +33,11 @@ h1 {
   text-align: center;
 }
 
-h2{
+h2 {
   font-size: 32px;
 }
 
-.search-bar{
+.search-bar {
   width: 100%;
   max-width: 488px;
   height: 35px;
@@ -49,12 +49,12 @@ h2{
   padding-left: 5px;
 }
 
-.number-of-car{
+.number-of-car {
   font-size: 24px;
   margin-bottom: 15px;
 }
 
-.number-of-car.zero{
+.number-of-car.zero {
   color: red;
   font-weight: 700;
 }
@@ -71,12 +71,12 @@ h2{
   display: flex;
   flex-direction: column;
   background: var(--salmon);
-  padding: 25px 10px;
+  padding: 0 10px 25px 10px;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.35);
   border-radius: 15px;
   max-width: 488px;
+  overflow: hidden;
 }
-
 
 .car img {
   max-width: 100%;
@@ -96,7 +96,16 @@ h2{
 
 .name {
   order: -2;
+  width: calc(100% + 20px);
+  padding-top: 25px;
   align-self: center;
+  align-items: center;
+  background: var(--beige-bg);
+  
+}
+
+.name h2{
+  width: fit-content;
 }
 
 .car .image {
@@ -114,8 +123,8 @@ h2{
   text-align: justify;
 }
 
-.back-to-top{
-  font-family: 'Staatliches';
+.back-to-top {
+  font-family: "Staatliches";
   position: fixed;
   right: 24px;
   bottom: 24px;
@@ -127,26 +136,24 @@ h2{
   color: var(--salmon);
   background: var(--grey);
   border-radius: 100%;
-  font-size:30px;
+  font-size: 30px;
   border: 0;
   outline: none;
   transition: 0.1s;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 1);
 }
 
-.back-to-top:hover{
+.back-to-top:hover {
   opacity: 0.8;
 }
 
-.back-to-top.hide{
+.back-to-top.hide {
   display: none;
 }
 
-@media (min-width: 768px){
-
-  
-  h1, h2{
+@media (min-width: 768px) {
+  h1,
+  h2 {
     font-size: 45px;
   }
 }
-
