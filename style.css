@@ -37,6 +37,28 @@ h2{
   font-size: 45px;
 }
 
+.search-bar{
+  width: 100%;
+  max-width: 488px;
+  height: 35px;
+  font-size: 18px;
+  margin-bottom: 15px;
+  background: var(--beige-bg);
+  border: 1px solid var(--grey);
+  border-radius: 4px;
+  padding-left: 5px;
+}
+
+.number-of-car{
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.number-of-car.zero{
+  color: red;
+  font-weight: 700;
+}
+
 .container {
   display: flex;
   justify-content: space-evenly;
@@ -115,7 +137,6 @@ h2{
 .back-to-top:hover{
   opacity: 0.8;
 }
-
 
 .back-to-top.hide{
   display: none;
