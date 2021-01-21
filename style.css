@@ -49,6 +49,16 @@ h2{
   padding-left: 5px;
 }
 
+.number-of-car{
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.number-of-car.zero{
+  color: red;
+  font-weight: 700;
+}
+
 .container {
   display: flex;
   justify-content: space-evenly;
@@ -127,7 +137,6 @@ h2{
 .back-to-top:hover{
   opacity: 0.8;
 }
-
 
 .back-to-top.hide{
   display: none;

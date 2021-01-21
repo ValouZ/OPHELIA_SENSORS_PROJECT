@@ -1,6 +1,7 @@
 const container = document.getElementById("app-container");
 const backToTop = document.getElementById("app-back-top");
 const searchBar = document.getElementById("app-search-bar");
+const numberOfCarDiv = document.getElementById("app-number-car");
 let cars = [];
 
 window.addEventListener("scroll", displayBackToTop);
@@ -29,7 +30,9 @@ const loadCars = async () => {
 
 const displayCars = (cars) => {
   container.innerHTML = "";
-  for (let i = 0; i < cars.length; i++) {
+  let carsLength = cars.length;
+  numberOfCars(carsLength);
+  for (let i = 0; i < carsLength; i++) {
     // On place chaque voiture dans une section
     let newCar = document.createElement("li");
     newCar.classList.add("car");
@@ -68,6 +71,21 @@ const displayCars = (cars) => {
       newCar.appendChild(line);
     }
     container.appendChild(newCar);
+  }
+};
+
+const numberOfCars = (length) => {
+  numberOfCarDiv.classList.remove("zero");
+  switch (length) {
+    case 0:
+      numberOfCarDiv.innerHTML = "Aucun modèle trouvé";
+      numberOfCarDiv.classList.add("zero");
+      break;
+    case 1:
+      numberOfCarDiv.innerHTML = length + " modèle trouvé";
+      break;
+    default:
+      numberOfCarDiv.innerHTML = length + " modèles trouvés";
   }
 };
 
