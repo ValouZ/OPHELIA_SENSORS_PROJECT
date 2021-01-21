@@ -2,19 +2,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins";
+  font-family: "Quicksand";
 }
 
 :root {
-  --grey: #0e0f16;
-  --beige: #ffb997;
-  --blue: #CDEAC0;
+  --grey: #0f1108;
+  --beige-bg: #f2efea;
+  --salmon: #edb3a3;
 }
 
 body {
+  background: var(--beige-bg);
   margin: 50px 5px;
-  background: var(--grey);
-  color: var(--beige);
+  color: var(--grey);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,25 +23,38 @@ body {
 h1,
 h2,
 h3 {
-  color: var(--blue);
+  font-family: "Staatliches";
+  font-weight: 400;
+  color: var(--grey);
 }
 
 h1 {
-  margin-bottom: 30px;
+  margin-bottom: 60px;
   text-align: center;
+}
+
+h2{
+  font-size: 45px;
 }
 
 .container {
   display: flex;
-  flex-direction: column;
-  width: 95%;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .car {
-  margin: 40px 0;
+  margin: 0 2% 80px 2%;
   display: flex;
   flex-direction: column;
+  background: var(--salmon);
+  padding: 25px 10px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.35);
+  border-radius: 15px;
+  max-width: 488px;
 }
+
 
 .car img {
   max-width: 100%;
@@ -50,24 +63,27 @@ h1 {
 .line {
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 }
 
 .line h3 {
   text-transform: capitalize;
-  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
 .name {
   order: -2;
+  align-self: center;
 }
 
 .car .image {
+  align-self: center;
   width: fit-content;
   height: fit-content;
   margin-bottom: 25px;
-  border: 5px solid var(--beige);
-  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.5);
+  border: 4px solid var(--beige-bg);
+  /* box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.5); */
   border-radius: 6px;
   order: -1;
 }
@@ -76,14 +92,3 @@ h1 {
   text-align: justify;
 }
 
-@media (min-width: 800px) {
-  .container {
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 95%;
-  }
-  .car {
-    width: 40%;
-    margin: 20px 5%;
-  }
-}

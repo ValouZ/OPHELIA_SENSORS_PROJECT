@@ -50,9 +50,3 @@ function displayCars() {
       }
     });
 }
-
-// '<div class="line"><h2>' +
-//   j +
-//   '</h2><p class="description">' +
-//   data[i][j] +
-//   "<p></div>";
