@@ -1,6 +1,12 @@
 const container = document.getElementById("app-container");
+const backToTop = document.getElementById("app-back-top");
+
+
+window.addEventListener("scroll", displayBackToTop);
 
 displayCars();
+// BACK2TOP(selector, offset, prop, time, effect, delay);
+BACK2TOP(backToTop, 300 ,"all", 500,  "cubic-bezier(.15,.36,.09,.92)");
 
 // Fonction affichant l'ensemble des véhicules
 function displayCars() {
@@ -22,12 +28,12 @@ function displayCars() {
           switch (j) {
             case "name":
               line.innerHTML = "<h2>" + data[i][j] + "</h2>";
-              line.classList.add("name")
+              line.classList.add("name");
               break;
             // Si c'est on traite la description, on ajoute une classe description
             case "description":
-              line.innerHTML += '<p>' + data[i][j] + "<p>";
-              line.classList.add("description")
+              line.innerHTML += "<p>" + data[i][j] + "<p>";
+              line.classList.add("description");
               break;
             // Si c'est une image, on place l'url dans une balise img
             case "img":
@@ -49,4 +55,12 @@ function displayCars() {
         container.appendChild(newCar);
       }
     });
+}
+
+function displayBackToTop() {
+  if (this.pageYOffset >= 300) {
+    backToTop.classList.remove("hide");
+  } else {
+    backToTop.classList.add("hide");
+  }
 }
