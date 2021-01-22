@@ -25,10 +25,11 @@ searchBar.addEventListener("keyup", (e) => {
 // On écoute le clic sur le burger
 burger.addEventListener("click", showBurgerMenu);
 
-// for (let i = 0; i < links.length; i++) {
-//   console.log("yo");
-//   links[i].addEventListener("click", clearSearchBar);
-// }
+// JE NE COMPRENDS PAS ARGHHHHHHH CA MARCHE PAS
+for (let i = 0; i < links.length; i++) {
+  console.log("yo");
+  links[i].addEventListener("click", clearSearchBar);
+}
 
 // BACK2TOP(selector, offset, prop, time, effect, delay);
 // Librairie permetttant d'animer le bouton back to top facilement
@@ -64,8 +65,12 @@ function displayCars(cars) {
       // On place chaque caractéristique et leur nom dans une ligne
       let line = document.createElement("div");
       line.classList.add("line");
+
       // On met le nom de la catégorie dans une balise h3
-      line.innerHTML += "<h3>" + j + "</h3>";
+      // J'utilise replace 3 fois de suite pour remplacer tous les "-" par des espaces 
+      // Ce n'est pasla bonne solution mais je n'ai pas trouvé comment faire autrement 
+      // et je sais qu'il n'y en a pas plus de 3 par titre 
+      line.innerHTML += "<h3>" + j.replace("-s", "(s)").replace("-"," ").replace("-"," ") + "</h3>";
 
       switch (j) {
         case "name":
@@ -140,6 +145,7 @@ function displayBackToTop() {
   }
 }
 
+// Fonction qui reinitialise la barre de recherche
 function clearSearchBar() {
   // searchBar.value = "";
   console.log(searchBar);

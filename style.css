@@ -14,6 +14,7 @@
 body {
   background: var(--beige-bg);
   color: var(--grey);
+  overflow-x: hidden;
 }
 
 ul {
@@ -98,10 +99,11 @@ header {
   top: 50px;
   left: calc(-100vw - 25px);
   width: 100vw;
+  min-height: 100vh;
   background: var(--beige-bg);
   display: flex;
   flex-direction: column;
-  transition: 0.6s ease-in;
+  transition: 0.4s ease-in;
 }
 
 .menu.show-menu {
