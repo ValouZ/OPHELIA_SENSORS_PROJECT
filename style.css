@@ -13,11 +13,16 @@
 
 body {
   background: var(--beige-bg);
-  margin: 50px 5px;
   color: var(--grey);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+}
+
+ul {
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
 }
 
 h1,
@@ -35,6 +40,83 @@ h1 {
 
 h2 {
   font-size: 32px;
+}
+
+header {
+  margin: 25px 0 0 25px;
+  height: 50px;
+  width: 50px;
+}
+
+.burger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.icon {
+  width: 100%;
+  height: 6px;
+  border-radius: 100px;
+  background: black;
+  z-index: 1;
+  position: relative;
+  transition: 0.3s;
+}
+
+.icon::after,
+.icon::before {
+  position: absolute;
+  content: "";
+  height: inherit;
+  width: inherit;
+  top: 12px;
+  background: inherit;
+  border-radius: inherit;
+  transition: 0.3s;
+}
+
+.icon::before {
+  top: -12px;
+}
+
+.burger.close .icon {
+  width: 50%;
+}
+
+.burger.close .icon::after,
+.burger.close .icon::before {
+  width: 0px;
+  top: 0;
+}
+
+.menu {
+  padding: 25px 15px;
+  position: absolute;
+  top: 50px;
+  left: calc(-100vw - 25px);
+  width: 100vw;
+  background: var(--beige-bg);
+  display: flex;
+  flex-direction: column;
+  transition: 0.6s ease-in;
+}
+
+.menu.show-menu {
+  left: -38px;
+}
+
+.link {
+  padding: 5px 0;
+}
+
+.content {
+  margin: 50px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .search-bar {
@@ -101,10 +183,9 @@ h2 {
   align-self: center;
   align-items: center;
   background: var(--beige-bg);
-  
 }
 
-.name h2{
+.name h2 {
   width: fit-content;
 }
 

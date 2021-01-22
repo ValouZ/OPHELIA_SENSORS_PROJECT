@@ -12,14 +12,27 @@
 </head>
 
 <body>
-  <h1>Modèles de voitures et leurs caractéristiques</h1>
-  <input  class="search-bar" type="text" name="search-bar" id ="app-search-bar" placeholder="Trouver un modèle" aria-label="Barre de recherche des différents modèles">
-  <div id="app-number-car" class="number-of-car"></div>
-  <ul id="app-container" class="container"></ul>
-  <button id="app-back-top" class="back-to-top hide">Top</button>
-  <!-- Librairie permettant d'animer un back to top -->
-  <script src="back2top.js"></script>
-  <script src="script.js"></script>
+
+  <header>
+    <div id="app-burger" class="burger">
+      <div class="icon">
+        <nav>
+          <ul id="app-menu" class="menu"></ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <div class="content">
+    <h1>Modèles de voitures et leurs caractéristiques</h1>
+    <input class="search-bar" type="text" name="search-bar" id="app-search-bar" placeholder="Trouver un modèle"
+      aria-label="Barre de recherche des différents modèles">
+    <div id="app-number-car" class="number-of-car"></div>
+    <ul id="app-container" class="container"></ul>
+    <button id="app-back-top" class="back-to-top hide">Top</button>
+    <!-- Librairie permettant d'animer un back to top -->
+    <script src="back2top.js"></script>
+    <script src="script.js"></script>
+  </div>
 </body>
 
 </html>
