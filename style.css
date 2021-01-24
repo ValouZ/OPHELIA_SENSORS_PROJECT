@@ -199,10 +199,6 @@ header {
   color: var(--beige-bg);
 }
 
-.see-more:focus {
-  color: var(--grey);
-}
-
 .head {
   display: flex;
   flex-direction: column;
@@ -279,7 +275,7 @@ header {
   font-size: 30px;
   border: 0;
   outline: none;
-  transition-duration:0.2s, 0.5s;
+  transition-duration: 0.2s, 0.5s;
   transition-property: opacity, transform;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 1);
 }
