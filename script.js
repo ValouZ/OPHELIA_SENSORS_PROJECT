@@ -26,12 +26,6 @@ searchBar.addEventListener("keyup", (e) => {
 // On écoute le clic sur le burger
 burger.addEventListener("click", showBurgerMenu);
 
-// JE NE COMPRENDS PAS ARGHHHHHHH CA MARCHE PAS
-for (let i = 0; i < links.length; i++) {
-  console.log("yo");
-  links[i].addEventListener("click", clearSearchBar);
-}
-
 backToTop.addEventListener("click", () => {
   window.scroll(0, 0);
 });
@@ -142,12 +136,14 @@ const numberOfCars = (length) => {
 // Fonction ajoutant le nom de toutes les voitures dans le menu
 const addCarsMenu = (cars) => {
   for (let i = 0; i < cars.length; i++) {
-    menu.innerHTML +=
-      '<li class="link"> <a href="#' +
-      cars[i].name.split(" ").join("") +
-      '">' +
-      cars[i].name +
-      " </a> </li>";
+    let linkLI = document.createElement("li");
+    let link = document.createElement("a");
+    linkLI.classList.add("link");
+    link.href = "#" + cars[i].name.split(" ").join("");
+    link.textContent = cars[i].name;
+    linkLI.appendChild(link);
+    menu.appendChild(linkLI);
+    link.addEventListener("click", clearSearchBar);
   }
 };
 
@@ -168,11 +164,13 @@ function displayBackToTop() {
 
 // Fonction qui reinitialise la barre de recherche
 function clearSearchBar() {
-  // searchBar.value = "";
-  console.log(searchBar);
-  displayCars(cars);
+  if (searchBar.value != "") {
+    searchBar.value = "";
+    displayCars(cars);
+  }
 }
 
+// Fonction affichant/masquant le contenu du parametre -info- en cliquant sur le bouton "Voir plus"
 function displayFullContent(button, info) {
   if (info.classList.contains("display-content")) {
     button.textContent = "Voir plus";
@@ -184,6 +182,7 @@ function displayFullContent(button, info) {
     info.classList.add("display-content");
   }
 
+  // Nous replace en haut de la carte correspondant à notre voiture
   window.scroll({
     top: button.parentNode.offsetTop,
   });
