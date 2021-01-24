@@ -5,6 +5,7 @@ const numberOfCarDiv = document.getElementById("app-number-car");
 const burger = document.getElementById("app-burger");
 const menu = document.getElementById("app-menu");
 const links = document.getElementsByClassName("link");
+const displayedCars = document.getElementsByClassName("car");
 let cars = [];
 
 // On écoute le scroll pour afficher le bouton back to top
@@ -59,18 +60,27 @@ function displayCars(cars) {
   for (let i = 0; i < carsLength; i++) {
     // On place chaque voiture dans un li
     let newCar = document.createElement("li");
+    let head = document.createElement("div");
+    let moreInfo = document.createElement("div");
+    let seeMoreButton = document.createElement("button");
     newCar.classList.add("car");
-
+    head.classList.add("head");
+    moreInfo.classList.add("more-info");
+    seeMoreButton.classList.add("see-more");
+    seeMoreButton.textContent = "Voir plus";
     for (let j in cars[i]) {
       // On place chaque caractéristique et leur nom dans une ligne
       let line = document.createElement("div");
       line.classList.add("line");
 
+      let title = j.replace("-s", "(s)");
+      while (title.includes("-")) {
+        title = title.replace("-", " ");
+      }
+
       // On met le nom de la catégorie dans une balise h3
-      // J'utilise replace 3 fois de suite pour remplacer tous les "-" par des espaces 
-      // Ce n'est pasla bonne solution mais je n'ai pas trouvé comment faire autrement 
-      // et je sais qu'il n'y en a pas plus de 3 par titre 
-      line.innerHTML += "<h3>" + j.replace("-s", "(s)").replace("-"," ").replace("-"," ") + "</h3>";
+      // On utilise une boucle pour remplacer tous les "-" des titres par des espaces
+      line.innerHTML += "<h3>" + title + "</h3>";
 
       switch (j) {
         case "name":
@@ -78,10 +88,12 @@ function displayCars(cars) {
           line.classList.add("name");
           // On supprime les espaces pour ajouter une ancre lié au menu
           line.id = cars[i][j].split(" ").join("");
+          head.appendChild(line);
           break;
         case "description":
           line.innerHTML += "<p>" + cars[i][j] + "<p>";
           line.classList.add("description");
+          head.appendChild(line);
           break;
         case "img":
           line.innerHTML =
@@ -91,13 +103,22 @@ function displayCars(cars) {
             cars[i].name +
             '">';
           line.classList.add("image");
+          head.appendChild(line);
           break;
         default:
           line.innerHTML += "<p>" + cars[i][j] + "<p>";
+          moreInfo.appendChild(line);
           break;
       }
-      newCar.appendChild(line);
+      // newCar.appendChild(line);
     }
+    seeMoreButton.addEventListener("click", () => {
+      displayFullContent(moreInfo);
+    });
+
+    newCar.appendChild(head);
+    newCar.appendChild(moreInfo);
+    newCar.appendChild(seeMoreButton);
     container.appendChild(newCar);
   }
 }
@@ -150,4 +171,8 @@ function clearSearchBar() {
   // searchBar.value = "";
   console.log(searchBar);
   displayCars(cars);
+}
+
+function displayFullContent(info, car) {
+  info.classList.toggle("display-content");
 }
