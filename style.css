@@ -193,11 +193,11 @@ header {
   transition: 0.1s;
 }
 
-.see-more:hover{
+.see-more:hover {
   color: var(--beige-bg);
 }
 
-.see-more:focus{
+.see-more:focus {
   color: var(--grey);
 }
 
@@ -209,9 +209,11 @@ header {
 
 .more-info {
   display: none;
+  overflow: hidden;
+  transition: 1s;
 }
 
-.more-info.display-content{
+.more-info.display-content {
   display: initial;
 }
 

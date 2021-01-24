@@ -174,12 +174,18 @@ function clearSearchBar() {
 }
 
 function displayFullContent(button, info) {
-  info.classList.toggle("display-content");
-  if (info.classList.contains("display-content")){
-    console.log(button);
-    button.textContent = "Réduire";
-  }
-  else{
+  if (info.classList.contains("display-content")) {
     button.textContent = "Voir plus";
+    setTimeout(() => {
+      info.classList.remove("display-content");
+    }, 750);
+  } else {
+    button.textContent = "Réduire";
+    info.classList.add("display-content");
   }
+
+  window.scroll({
+    top: button.parentNode.offsetTop,
+    behavior: "smooth",
+  });
 }
