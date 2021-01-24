@@ -185,7 +185,6 @@ function displayFullContent(button, info) {
   }
 
   window.scroll({
-    top: button.parentNode.offsetTop,
-    behavior: "smooth",
+    top: button.parentNode.offsetTop
   });
 }
