@@ -113,7 +113,7 @@ function displayCars(cars) {
       // newCar.appendChild(line);
     }
     seeMoreButton.addEventListener("click", () => {
-      displayFullContent(moreInfo);
+      displayFullContent(seeMoreButton, moreInfo);
     });
 
     newCar.appendChild(head);
@@ -173,6 +173,13 @@ function clearSearchBar() {
   displayCars(cars);
 }
 
-function displayFullContent(info, car) {
+function displayFullContent(button, info) {
   info.classList.toggle("display-content");
+  if (info.classList.contains("display-content")){
+    console.log(button);
+    button.textContent = "Réduire";
+  }
+  else{
+    button.textContent = "Voir plus";
+  }
 }

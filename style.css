@@ -197,6 +197,10 @@ header {
   color: var(--beige-bg);
 }
 
+.see-more:focus{
+  color: var(--grey);
+}
+
 .head {
   display: flex;
   flex-direction: column;
