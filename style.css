@@ -5,6 +5,11 @@
   font-family: "Quicksand";
 }
 
+*::selection{
+  color: var(--grey);
+  background: var(--salmon);
+}
+
 :root {
   --grey: #0f1108;
   --beige-bg: #f2efea;
