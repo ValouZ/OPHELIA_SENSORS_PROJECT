@@ -32,9 +32,9 @@ for (let i = 0; i < links.length; i++) {
   links[i].addEventListener("click", clearSearchBar);
 }
 
-// BACK2TOP(selector, offset, prop, time, effect, delay);
-// Librairie permetttant d'animer le bouton back to top facilement
-BACK2TOP(backToTop, 300, "all", 500, "cubic-bezier(.15,.36,.09,.92)");
+backToTop.addEventListener("click", () => {
+  window.scroll(0, 0);
+});
 
 // Fonction chargeant l'ensemble des voitures contenu dans l'api
 // Elle appelle les fonctions d'affichage et d'ajout des noms de voitures
@@ -185,6 +185,6 @@ function displayFullContent(button, info) {
   }
 
   window.scroll({
-    top: button.parentNode.offsetTop
+    top: button.parentNode.offsetTop,
   });
 }
