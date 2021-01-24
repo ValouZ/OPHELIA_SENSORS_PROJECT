@@ -178,7 +178,7 @@ function displayFullContent(button, info) {
     button.textContent = "Voir plus";
     setTimeout(() => {
       info.classList.remove("display-content");
-    }, 750);
+    }, 500);
   } else {
     button.textContent = "Réduire";
     info.classList.add("display-content");
