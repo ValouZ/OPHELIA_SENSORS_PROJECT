@@ -5,7 +5,7 @@
   font-family: "Quicksand";
 }
 
-*::selection{
+*::selection {
   color: var(--grey);
   background: var(--salmon);
 }
@@ -30,7 +30,6 @@ a {
   text-decoration: none;
   color: inherit;
 }
-
 
 h1,
 h2,
@@ -120,7 +119,7 @@ header {
   padding: 5px 0;
 }
 
-.link a:hover{
+.link a:hover {
   text-decoration: underline var(--salmon);
 }
 
@@ -150,7 +149,7 @@ header {
 }
 
 .number-of-car.zero {
-  color: #FF4B4B;
+  color: #ff4b4b;
   font-weight: 700;
 }
 
@@ -171,11 +170,45 @@ header {
   border-radius: 15px;
   max-width: 488px;
   overflow: hidden;
+  position: relative;
+  height: fit-content;
+}
+
+.see-more {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 100%;
+  height: 50px;
+  background: none;
+  outline: none;
+  color: var(--grey);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(-50%);
+  font-size: 1.3em;
+  font-weight: bold;
+  transition: 0.1s;
+}
+
+.see-more:hover{
+  color: var(--beige-bg);
 }
 
 .head {
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+.more-info {
+  display: none;
+}
+
+.more-info.display-content{
+  display: initial;
 }
 
 .car img {
@@ -195,6 +228,7 @@ header {
 }
 
 .name {
+  order: -2;
   width: calc(100% + 20px);
   padding-top: 25px;
   align-self: center;
@@ -207,6 +241,7 @@ header {
 }
 
 .car .image {
+  order: -1;
   align-self: center;
   width: fit-content;
   height: fit-content;
@@ -259,7 +294,7 @@ header {
   :root {
     --grey: #fefefe;
     --beige-bg: #282928;
-    --salmon: #2E7E81;
+    --salmon: #2e7e81;
     /* 8b687f */
   }
   img {

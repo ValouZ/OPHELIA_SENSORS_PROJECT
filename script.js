@@ -5,6 +5,7 @@ const numberOfCarDiv = document.getElementById("app-number-car");
 const burger = document.getElementById("app-burger");
 const menu = document.getElementById("app-menu");
 const links = document.getElementsByClassName("link");
+const displayedCars = document.getElementsByClassName("car");
 let cars = [];
 
 // On écoute le scroll pour afficher le bouton back to top
@@ -61,17 +62,18 @@ function displayCars(cars) {
     let newCar = document.createElement("li");
     let head = document.createElement("div");
     let moreInfo = document.createElement("div");
+    let seeMoreButton = document.createElement("button");
     newCar.classList.add("car");
     head.classList.add("head");
     moreInfo.classList.add("more-info");
-
+    seeMoreButton.classList.add("see-more");
+    seeMoreButton.textContent = "Voir plus";
     for (let j in cars[i]) {
       // On place chaque caractéristique et leur nom dans une ligne
       let line = document.createElement("div");
       line.classList.add("line");
 
       let title = j.replace("-s", "(s)");
-      console.log(title);
       while (title.includes("-")) {
         title = title.replace("-", " ");
       }
@@ -91,7 +93,7 @@ function displayCars(cars) {
         case "description":
           line.innerHTML += "<p>" + cars[i][j] + "<p>";
           line.classList.add("description");
-          moreInfo.appendChild(line);
+          head.appendChild(line);
           break;
         case "img":
           line.innerHTML =
@@ -110,8 +112,13 @@ function displayCars(cars) {
       }
       // newCar.appendChild(line);
     }
+    seeMoreButton.addEventListener("click", () => {
+      displayFullContent(moreInfo);
+    });
+
     newCar.appendChild(head);
     newCar.appendChild(moreInfo);
+    newCar.appendChild(seeMoreButton);
     container.appendChild(newCar);
   }
 }
@@ -164,4 +171,8 @@ function clearSearchBar() {
   // searchBar.value = "";
   console.log(searchBar);
   displayCars(cars);
+}
+
+function displayFullContent(info, car) {
+  info.classList.toggle("display-content");
 }
