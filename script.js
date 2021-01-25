@@ -178,6 +178,10 @@ function displayFullContent(button, info) {
       info.classList.remove("display-content");
     }, 500);
   } else {
+    let infos = document.getElementsByClassName("more-info");
+    for (let i = 0; i < infos.length; i++) {
+      infos[i].classList.remove("display-content");
+    }
     button.textContent = "Réduire";
     info.classList.add("display-content");
   }
