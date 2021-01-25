@@ -4,7 +4,6 @@
   box-sizing: border-box;
   font-family: "Quicksand";
   scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
 }
 
 *::selection {
@@ -125,6 +124,9 @@ header {
   text-decoration: underline var(--salmon);
 }
 
+.aston{
+  height: 33%;
+}
 .content {
   margin: 50px 5px;
   display: flex;

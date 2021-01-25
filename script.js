@@ -4,7 +4,6 @@ const searchBar = document.getElementById("app-search-bar");
 const numberOfCarDiv = document.getElementById("app-number-car");
 const burger = document.getElementById("app-burger");
 const menu = document.getElementById("app-menu");
-const links = document.getElementsByClassName("link");
 const displayedCars = document.getElementsByClassName("car");
 let cars = [];
 
@@ -139,13 +138,40 @@ const addCarsMenu = (cars) => {
     let linkLI = document.createElement("li");
     let link = document.createElement("a");
     linkLI.classList.add("link");
+    let classBrand = cars[i].name.toLowerCase().split(" ")[0];
+    if (classBrand.includes("-")) {
+      classBrand = classBrand.split("-")[0];
+    }
+    linkLI.classList.add(classBrand);
     link.href = "#" + cars[i].name.split(" ").join("");
     link.textContent = cars[i].name;
     linkLI.appendChild(link);
     menu.appendChild(linkLI);
     link.addEventListener("click", clearSearchBar);
   }
+  // sortByBrand();
 };
+
+// Fonction ayant pour but de réduire la taille du menu en classant les voitures par marques 
+// function sortByBrand() {
+//   const linksMenu = document.getElementsByClassName("link");
+//   let links = linksMenu;
+//   let numberOfBrand = 0;
+//   let div = document.createElement("div");
+//   // menu.innerHTML = "";
+  
+//   for (let i = 0; i < links.length - 1; i++) {
+//     console.log(links[i].classList[1]);
+//     div.appendChild(links[i]);
+//     if (links[i].classList[1] != links[i + 1].classList[1]) {
+//       menu.appendChild(div);
+//       div = document.createElement("div");
+//       numberOfBrand++;
+//     }
+//   }
+//   numberOfBrand++;
+//   console.log(numberOfBrand);
+// }
 
 // Fonction permettant d'afficher ou de cacher le menu burger
 function showBurgerMenu() {
